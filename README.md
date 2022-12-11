@@ -23,28 +23,27 @@ GINCM-DTA has the following dependencies:
 * transformers==4.12.2
 * tensorboardx==2.4
 
-## data preparation and preprocess
-+ 1. dataset split
-    + Get the DTA files of the Davis and KIBA datasets (downloaded in https://github.com/hkmztrk/DeepDTA/tree/master/data). You first need to generate the standard data and 5-fold cross-validation data from raw data. Run command to precess the rawData as follows:
-    ```python
-    python data_process.py
-    ```
-    Then, you will get the processed data files:
-    - data/davis_test.csv
-    - data/davis_train.csv
-    - data/kiba_test.csv
-    - data/kiba_train.csv
-    - data/davis/davis_fold0-5_train.csv
-    - data/davis/davis_fold0-5_valid.csv
-    - data/kiba/kiba_fold0-5_train.csv
-    - data/kiba/kiba_fold0-5_valid.csv
+## dataset split
+  Get the DTA files of the Davis and KIBA datasets (downloaded in https://github.com/hkmztrk/DeepDTA/tree/master/data). You first need to generate the standard data and 5-fold cross-validation data from raw data. Run command to precess the rawData as follows:
+```python
+python data_process.py
+```
+Then, you will get the processed data files:
+- data/davis_test.csv
+- data/davis_train.csv
+- data/kiba_test.csv
+- data/kiba_train.csv
+- data/davis/davis_fold0-5_train.csv
+- data/davis/davis_fold0-5_valid.csv
+- data/kiba/kiba_fold0-5_train.csv
+- data/kiba/kiba_fold0-5_valid.csv
 
-+ 2. contact map generation
-    + You need to use Pconsc4 to predict the contact map through the protein sequence of all targets in the Davis and KIBA datasets. Perform all steps by:
-    ```python
-    python cm_generation.py
-    ```
-    Then, you will get the processd data files. Then copy the two resulting folders named "aln" and "pconsc4" from to the data folder. The contact maps of the targets of the Davis, KIBA and covid datasets can all be obtained by executing the cm_generation.py file.
+## contact map generation
+You need to use Pconsc4 to predict the contact map through the protein sequence of all targets in the Davis and KIBA datasets. Perform all steps by:
+```python
+python cm_generation.py
+```
+Then, you will get the processd data files. Then copy the two resulting folders named "aln" and "pconsc4" from to the data folder. The contact maps of the targets of the Davis, KIBA and covid datasets can all be obtained by executing the cm_generation.py file.
 
 ## training in davis or KIBA
 To train the model in davis or kiba datasets:
